@@ -1,0 +1,173 @@
+@import "reset";
+@import "animations";
+@import "navbar";
+@import "footer";
+
+/* =====================
+   HEADER
+===================== */
+.header {
+	height: 90vh;
+	background: url("../assets/polar-bear-home.jpg") center/cover no-repeat;
+	position: relative;
+}
+
+.header-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 500px;
+	padding: 2rem;
+	border-radius: $border-radius-general;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+	width: 90%;
+
+	@include glass-effect($primary-color, 0);
+	background: none;
+
+	@media screen and (min-width: 700px) {
+		top: 30%;
+		left: 5%;
+		transform: none;
+	}
+}
+
+.header-subtitle {
+	color: $light-secondary;
+}
+
+.cta-section {
+	margin-top: 2rem;
+
+	.btn {
+		display: inline-block;
+		color: #ffffff;
+		padding: 0.7rem;
+		border-radius: $border-radius-general;
+		text-decoration: none;
+		border: unset;
+
+		@include glass-effect($light-secondary, 1);
+	}
+}
+
+/* =====================
+   INFO SECTION
+===================== */
+.info-section {
+	margin-top: 2rem;
+}
+
+.info-container {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1.5rem;
+
+	@media screen and (min-width: 700px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.info-card {
+	@include glass-effect($primary-color, 0.15);
+	border-radius: $border-radius-general;
+	padding: 2rem 1.5rem;
+	display: flex;
+	gap: 1rem;
+
+	@media screen and (min-width: 700px) {
+		max-width: 400px;
+	}
+
+	&:hover {
+		transform: translateY(-6px);
+	}
+}
+
+.info-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.info-icon {
+	max-width: 80px;
+	padding: 0.5rem;
+	background: lighten($color: $light-secondary, $amount: 40%);
+	border-radius: $border-radius-general;
+}
+
+.info-title {
+	font-family: "Lora";
+	font-size: 1.5rem;
+}
+
+.info-text {
+	font-size: 1rem;
+	color: $secondary-color;
+}
+
+/* =====================
+   GALLERY SECTION
+===================== */
+.gallery-section {
+	height: 100vh;
+	width: 100%;
+	overflow-x: hidden;
+	position: relative;
+}
+
+.gallery-container {
+	.btn {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		max-width: 300px;
+		bottom: 0;
+		background: $secondary-color;
+		color: $primary-color;
+		box-shadow: none;
+
+		&:hover {
+			box-shadow: none;
+		}
+	}
+}
+
+.gallery-item {
+	max-width: 350px;
+	position: absolute;
+	aspect-ratio: 5/3;
+	object-fit: cover;
+	border-radius: $border-radius-rounded;
+
+	&:nth-child(1) {
+		transform: translate(0%, 20%) rotate(-5deg);
+		z-index: 3;
+	}
+	&:nth-child(2) {
+		transform: translate(0%, 50%) rotate(-15deg);
+		z-index: 2;
+	}
+	&:nth-child(3) {
+		transform: translate(0%, 70%) rotate(-20deg);
+		z-index: 1;
+	}
+
+	@media screen and (min-width: 700px) {
+		max-width: 400px;
+		left: 50%;
+		&:nth-child(1) {
+			transform: translate(-95%, 50%) rotate(-15deg);
+			z-index: 1;
+		}
+		&:nth-child(2) {
+			transform: translate(-50%, 40%) rotate(0deg);
+			z-index: 3;
+		}
+		&:nth-child(3) {
+			transform: translate(-5%, 50%) rotate(15deg);
+			z-index: 2;
+		}
+	}
+}
