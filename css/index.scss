@@ -10,6 +10,15 @@
 	height: 90vh;
 	background: url("../assets/polar-bear-home.jpg") center/cover no-repeat;
 	position: relative;
+
+	&::after {
+		position: absolute;
+		content: "";
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(rgba(0, 0, 0, 0.2) 70%, $secondary-color);
+		pointer-events: none;
+	}
 }
 
 .header-content {
@@ -17,13 +26,9 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	max-width: 500px;
 	padding: 2rem;
-	border-radius: $border-radius-general;
-	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 	width: 90%;
-
-	@include glass-effect($primary-color, 0);
+	font-size: 1.5rem;
 	background: none;
 
 	@media screen and (min-width: 700px) {
@@ -34,7 +39,7 @@
 }
 
 .header-subtitle {
-	color: $light-secondary;
+	color: $secondary-color;
 }
 
 .cta-section {
@@ -48,7 +53,7 @@
 		text-decoration: none;
 		border: unset;
 
-		@include glass-effect($light-secondary, 1);
+		@include glass-effect();
 	}
 }
 
@@ -70,7 +75,7 @@
 }
 
 .info-card {
-	@include glass-effect($primary-color, 0.15);
+	@include glass-effect();
 	border-radius: $border-radius-general;
 	padding: 2rem 1.5rem;
 	display: flex;
@@ -93,7 +98,7 @@
 .info-icon {
 	max-width: 80px;
 	padding: 0.5rem;
-	background: lighten($color: $light-secondary, $amount: 40%);
+	background: lighten($color: $secondary-color, $amount: 70%);
 	border-radius: $border-radius-general;
 }
 
@@ -110,64 +115,154 @@
 /* =====================
    GALLERY SECTION
 ===================== */
-.gallery-section {
-	height: 100vh;
-	width: 100%;
-	overflow-x: hidden;
-	position: relative;
-}
-
 .gallery-container {
-	.btn {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		max-width: 300px;
-		bottom: 0;
-		background: $secondary-color;
-		color: $primary-color;
-		box-shadow: none;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-auto-rows: 150px;
+	gap: 0.75rem;
+	width: 100%;
 
-		&:hover {
-			box-shadow: none;
-		}
+	@media screen and (min-width: 700px) {
+		grid-template-columns: repeat(4, 1fr);
+		grid-auto-rows: 200px;
+		gap: 1.25rem;
 	}
 }
 
 .gallery-item {
-	max-width: 350px;
-	position: absolute;
-	aspect-ratio: 5/3;
+	width: 100%;
+	height: 100%;
 	object-fit: cover;
 	border-radius: $border-radius-rounded;
+	cursor: pointer;
+	position: relative;
+
+	&:hover {
+		transform: scale(1.03);
+		filter: brightness(1.1) saturate(1.1);
+	}
 
 	&:nth-child(1) {
-		transform: translate(0%, 20%) rotate(-5deg);
-		z-index: 3;
+		grid-row: span 2;
 	}
-	&:nth-child(2) {
-		transform: translate(0%, 50%) rotate(-15deg);
-		z-index: 2;
+	&:nth-child(4) {
+		grid-column: span 2;
 	}
-	&:nth-child(3) {
-		transform: translate(0%, 70%) rotate(-20deg);
-		z-index: 1;
+	&:nth-child(6) {
+		grid-row: span 2;
 	}
 
 	@media screen and (min-width: 700px) {
-		max-width: 400px;
-		left: 50%;
 		&:nth-child(1) {
-			transform: translate(-95%, 50%) rotate(-15deg);
-			z-index: 1;
+			grid-row: auto;
 		}
 		&:nth-child(2) {
-			transform: translate(-50%, 40%) rotate(0deg);
-			z-index: 3;
+			grid-row: span 2;
 		}
 		&:nth-child(3) {
-			transform: translate(-5%, 50%) rotate(15deg);
-			z-index: 2;
+			grid-column: span 2;
+		}
+		&:nth-child(4) {
+			grid-column: auto;
+		}
+		&:nth-child(6) {
+			display: none;
+		}
+	}
+}
+
+/* =====================
+   FACTS SECTION
+===================== */
+.facts-section {
+	@include flex-center;
+	flex-direction: column;
+	padding: 1rem;
+}
+
+.facts-container {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	max-width: 800px;
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 20px;
+		width: 3px;
+		border-radius: 100dvh;
+		background: rgba($secondary-color, 0.4);
+	}
+
+	@media screen and (min-width: 700px) {
+		&::before {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+}
+
+.fact-item {
+	display: flex;
+	gap: 1rem;
+	padding-left: 3rem;
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 25px;
+		left: 14px;
+		width: 16px;
+		height: 16px;
+		border-radius: 100dvh;
+		background: $secondary-color;
+		box-shadow: 0 0 0 4px rgba($secondary-color, 0.2);
+	}
+
+	.fact-image {
+		width: 60px;
+		height: 60px;
+		object-fit: cover;
+		border-radius: 100dvh;
+		border: 3px solid $secondary-color;
+	}
+
+	p {
+		font-size: 1rem;
+		color: $secondary-color;
+		line-height: 1.5;
+		padding: 0.5rem 1rem;
+		border-radius: $border-radius-general;
+		@include glass-effect;
+		color: $secondary-color;
+	}
+
+	@media screen and (min-width: 700px) {
+		width: 45%;
+		padding-left: 0;
+
+		&:nth-child(odd) {
+			align-self: flex-start;
+			padding-right: 2rem;
+
+			&::before {
+				left: auto;
+				right: -36px;
+			}
+		}
+
+		&:nth-child(even) {
+			align-self: flex-end;
+			padding-left: 2rem;
+
+			&::before {
+				left: -36px;
+			}
 		}
 	}
 }
