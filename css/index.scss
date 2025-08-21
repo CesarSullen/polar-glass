@@ -8,7 +8,7 @@
 ===================== */
 .header {
 	height: 90vh;
-	background: url("../assets/polar-bear-home.jpg") center/cover no-repeat;
+	background: url("../assets/header.jpg") center/cover no-repeat;
 	position: relative;
 
 	&::after {
@@ -16,7 +16,7 @@
 		content: "";
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(rgba(0, 0, 0, 0.2) 70%, $secondary-color);
+		background: linear-gradient(rgba(0, 0, 0, 0.1) 70%, $secondary-color);
 		pointer-events: none;
 	}
 }
@@ -98,7 +98,7 @@
 .info-icon {
 	max-width: 80px;
 	padding: 0.5rem;
-	background: lighten($color: $secondary-color, $amount: 70%);
+	background: lighten($color: $secondary-color, $amount: 5%);
 	border-radius: $border-radius-general;
 }
 
@@ -109,18 +109,33 @@
 
 .info-text {
 	font-size: 1rem;
-	color: $secondary-color;
 }
 
 /* =====================
    GALLERY SECTION
 ===================== */
+.gallery-section {
+	.section-title,
+	.section-subtitle {
+		color: $primary-color;
+	}
+}
 .gallery-container {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-auto-rows: 150px;
 	gap: 0.75rem;
 	width: 100%;
+
+	.btn {
+		max-width: none;
+	}
+
+	&:hover {
+		.gallery-item:not(:hover) {
+			filter: grayscale(1);
+		}
+	}
 
 	@media screen and (min-width: 700px) {
 		grid-template-columns: repeat(4, 1fr);
@@ -215,7 +230,7 @@
 	&::before {
 		content: "";
 		position: absolute;
-		top: 25px;
+		top: 20px;
 		left: 14px;
 		width: 16px;
 		height: 16px;
