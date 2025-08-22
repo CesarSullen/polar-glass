@@ -713,9 +713,9 @@ section {
 }
 
 /* =====================
-   FACTS SECTION
+   TIMELINE SECTION
 ===================== */
-.facts-section {
+.timeline-section {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -723,14 +723,14 @@ section {
   padding: 1rem;
 }
 
-.facts-container {
+.timeline-container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   max-width: 800px;
   position: relative;
 }
-.facts-container::before {
+.timeline-container::before {
   content: "";
   position: absolute;
   top: 0;
@@ -741,19 +741,19 @@ section {
   background: rgba(11, 28, 44, 0.4);
 }
 @media screen and (min-width: 700px) {
-  .facts-container::before {
+  .timeline-container::before {
     left: 50%;
     transform: translateX(-50%);
   }
 }
 
-.fact-item {
+.timeline-item {
   display: flex;
   gap: 1rem;
   padding-left: 3rem;
   position: relative;
 }
-.fact-item::before {
+.timeline-item::before {
   content: "";
   position: absolute;
   top: 20px;
@@ -764,16 +764,15 @@ section {
   background: #0b1c2c;
   box-shadow: 0 0 0 4px rgba(11, 28, 44, 0.2);
 }
-.fact-item .fact-image {
+.timeline-item .timeline-image {
   width: 60px;
   height: 60px;
   object-fit: cover;
   border-radius: 100dvh;
   border: 3px solid #0b1c2c;
 }
-.fact-item p {
+.timeline-item p {
   font-size: 1rem;
-  color: #0b1c2c;
   line-height: 1.5;
   padding: 0.5rem 1rem;
   border-radius: 15px;
@@ -785,29 +784,117 @@ section {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   color: #0b1c2c;
 }
-.fact-item p:hover {
+.timeline-item p:hover {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
 @media screen and (min-width: 700px) {
-  .fact-item {
+  .timeline-item {
     width: 45%;
     padding-left: 0;
   }
-  .fact-item:nth-child(odd) {
+  .timeline-item:nth-child(odd) {
     align-self: flex-start;
     padding-right: 2rem;
   }
-  .fact-item:nth-child(odd)::before {
+  .timeline-item:nth-child(odd)::before {
     left: auto;
     right: -36px;
   }
-  .fact-item:nth-child(even) {
+  .timeline-item:nth-child(even) {
     align-self: flex-end;
     padding-left: 2rem;
   }
-  .fact-item:nth-child(even)::before {
+  .timeline-item:nth-child(even)::before {
     left: -36px;
   }
+}
+
+/* =====================
+   FACTS SECTION
+===================== */
+.facts-section {
+  width: 100%;
+}
+
+.facts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.fact-item {
+  perspective: 1000px;
+}
+.fact-item .fact-inner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  text-align: center;
+  transition: transform 0.5s;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+.fact-item:hover .fact-inner {
+  transform: rotateY(180deg);
+}
+
+.fact-front,
+.fact-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backface-visibility: hidden;
+  border-radius: 1.5rem;
+  flex-direction: column;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-size: 1.3rem;
+  font-weight: 500;
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.4) 80%);
+  backdrop-filter: blur(5px);
+  border-top: solid 1px rgba(255, 255, 255, 0.5019607843);
+  border-right: solid 0.5px rgba(255, 255, 255, 0.5019607843);
+  color: #fdfdfd;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fact-front:hover,
+.fact-back:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.fact-front {
+  color: #0b1c2c !important;
+}
+.fact-front::before {
+  content: url("../assets/icons/seal-question-fill.svg");
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  scale: 1.5;
+  color: rgba(0, 0, 0, 0.3019607843);
+  pointer-events: none;
+}
+
+.hover-tip {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.fact-back {
+  transform: rotateY(180deg);
+  background-image: url("../assets/bears/bear_2.jpg");
+  filter: grayscale(1);
+  background-color: rgba(0, 0, 0, 0.5529411765);
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /*# sourceMappingURL=style.css.map */
