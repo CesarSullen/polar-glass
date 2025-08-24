@@ -360,9 +360,11 @@ section {
   color: #fdfdfd;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   width: 90%;
-  justify-self: center;
   border-radius: 100dvh;
-  top: 5px;
+  top: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 .nav:hover {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
@@ -374,10 +376,6 @@ section {
   align-items: center;
   text-wrap: nowrap;
   color: #0b1c2c;
-  /* &:hover {
-  	.nav-title {
-  	}
-  } */
 }
 
 .nav-icon {

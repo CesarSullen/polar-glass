@@ -1,7 +1,6 @@
 // Navigation
 .nav {
 	position: fixed;
-	// top: 0;
 	z-index: 1000;
 	padding: 0.6rem;
 	display: flex;
@@ -9,26 +8,23 @@
 	align-items: center;
 	background: transparent;
 	font-weight: bold;
-	// width: 100%;
 
-	// background: linear-gradient(to bottom, $secondary-color, transparent);
 	@include glass-effect;
 	width: 90%;
-	justify-self: center;
 	border-radius: 100dvh;
-	top: 5px;
+	top: 10px;
+
+	left: 0;
+	right: 0;
+	margin: 0 auto;
 }
+
 .nav-icon-wrapper {
 	display: flex;
 	gap: 10px;
 	align-items: center;
 	text-wrap: nowrap;
 	color: $secondary-color;
-
-	/* &:hover {
-		.nav-title {
-		}
-	} */
 }
 
 .nav-icon {
