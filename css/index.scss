@@ -327,46 +327,26 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	gap: 1.5rem;
-	width: 100%;
 }
 .fact-item {
-	perspective: 1000px;
-
-	.fact-inner {
-		position: relative;
-		width: 100%;
-		aspect-ratio: 1;
-		text-align: center;
-		transition: transform 0.5s;
-		cursor: pointer;
-		transform-style: preserve-3d;
-	}
-
-	&:hover .fact-inner {
-		transform: rotateY(180deg);
-	}
-}
-
-.fact-front,
-.fact-back {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	backface-visibility: hidden;
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1;
+	text-align: center;
 	border-radius: $border-radius-rounded;
 	flex-direction: column;
 	padding: 2rem;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 12px rgba($secondary-color, 0.3);
 	font-size: 1.3rem;
-	font-weight: 500;
-	@include glass-effect;
+	filter: grayscale(1);
 	@include flex-center;
-}
 
-.fact-front {
-	color: $secondary-color !important;
+	background-image: url("../assets/bears/bear_2.jpg");
+	background-color: #0000008d;
+	background-blend-mode: multiply;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 
 	&::before {
 		content: url("../assets/icons/seal-question-fill.svg");
@@ -374,23 +354,6 @@
 		bottom: 5%;
 		right: 5%;
 		scale: 1.5;
-		color: #0000004d;
 		pointer-events: none;
 	}
-}
-
-.hover-tip {
-	margin-top: 0.5rem;
-	font-size: 0.8rem;
-}
-
-.fact-back {
-	transform: rotateY(180deg);
-	background-image: url("../assets/bears/bear_2.jpg");
-	filter: grayscale(1);
-	background-color: #0000008d;
-	background-blend-mode: multiply;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
 }

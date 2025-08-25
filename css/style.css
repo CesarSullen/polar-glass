@@ -351,7 +351,6 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: transparent;
   font-weight: bold;
   background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.4) 80%);
   backdrop-filter: blur(15px);
@@ -453,7 +452,6 @@ section {
   border-right: solid 0.5px rgba(255, 255, 255, 0.5019607843);
   color: #fdfdfd;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  background-color: #0b1c2c;
 }
 .side-bar:hover {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
@@ -984,81 +982,36 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
-  width: 100%;
 }
 
 .fact-item {
-  perspective: 1000px;
-}
-.fact-item .fact-inner {
   position: relative;
   width: 100%;
   aspect-ratio: 1;
   text-align: center;
-  transition: transform 0.5s;
-  cursor: pointer;
-  transform-style: preserve-3d;
-}
-.fact-item:hover .fact-inner {
-  transform: rotateY(180deg);
-}
-
-.fact-front,
-.fact-back {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  backface-visibility: hidden;
   border-radius: 1.5rem;
   flex-direction: column;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(11, 28, 44, 0.3);
   font-size: 1.3rem;
-  font-weight: 500;
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.4) 80%);
-  backdrop-filter: blur(15px);
-  border-top: solid 1px rgba(255, 255, 255, 0.5019607843);
-  border-right: solid 0.5px rgba(255, 255, 255, 0.5019607843);
-  color: #fdfdfd;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  filter: grayscale(1);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.fact-front:hover,
-.fact-back:hover {
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-}
-
-.fact-front {
-  color: #0b1c2c !important;
-}
-.fact-front::before {
-  content: url("../assets/icons/seal-question-fill.svg");
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
-  scale: 1.5;
-  color: rgba(0, 0, 0, 0.3019607843);
-  pointer-events: none;
-}
-
-.hover-tip {
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
-}
-
-.fact-back {
-  transform: rotateY(180deg);
   background-image: url("../assets/bears/bear_2.jpg");
-  filter: grayscale(1);
   background-color: rgba(0, 0, 0, 0.5529411765);
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+.fact-item::before {
+  content: url("../assets/icons/seal-question-fill.svg");
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  scale: 1.5;
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=style.css.map */
