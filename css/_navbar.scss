@@ -7,15 +7,14 @@
 	justify-content: space-between;
 	align-items: center;
 	font-weight: bold;
-
-	@include glass-effect;
 	width: 90%;
 	border-radius: 100dvh;
 	top: 10px;
-
 	left: 0;
 	right: 0;
 	margin: 0 auto;
+
+	background: $secondary-color;
 }
 
 .nav-icon-wrapper {
@@ -23,7 +22,6 @@
 	gap: 10px;
 	align-items: center;
 	text-wrap: nowrap;
-	color: $secondary-color;
 }
 
 .nav-icon {
@@ -41,7 +39,6 @@
 }
 .nav-links {
 	display: none;
-	color: $secondary-color;
 
 	@media screen and (min-width: 700px) {
 		display: flex;
@@ -92,7 +89,7 @@
 	padding: 1rem;
 	gap: 50px;
 	border-radius: $border-radius-rounded;
-	@include glass-effect;
+	background: $secondary-color;
 }
 .side-bar-links {
 	display: flex;
@@ -140,7 +137,7 @@
 	.bar {
 		height: 3px;
 		width: 100%;
-		background-color: $secondary-color;
+		background-color: $primary-color;
 		border-radius: 2px;
 		transition: transform 0.4s ease, opacity 0.2s ease;
 	}
