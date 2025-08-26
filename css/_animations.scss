@@ -12,27 +12,25 @@
 	opacity: 1;
 
 	&.show-up {
-		animation: showUp 0.5s forwards;
+		animation: showUp 0.5s;
 	}
 	&.show-down {
-		animation: showDown 0.5s forwards;
+		animation: showDown 0.5s;
 	}
 	&.show-left {
-		animation: showLeft 0.5s forwards;
+		animation: showLeft 0.5s;
 	}
 	&.show-right {
-		animation: showRight 0.5s forwards;
+		animation: showRight 0.5s;
 	}
 	&.bounce-in {
-		animation: bounceIn 0.5s forwards;
+		animation: bounceIn 0.5s;
 	}
 	&.rotate-left {
-		animation: rotateLeft 0.5s forwards;
-		transform-origin: center;
+		animation: rotateLeft 0.5s;
 	}
 	&.rotate-right {
-		animation: rotateRight 0.5s forwards;
-		transform-origin: center;
+		animation: rotateRight 0.5s;
 	}
 }
 

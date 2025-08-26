@@ -275,18 +275,10 @@
 		box-shadow: 0 0 0 4px rgba($secondary-color, 0.2);
 	}
 
-	.timeline-image {
-		width: 60px;
-		height: 60px;
-		object-fit: cover;
-		border-radius: 100dvh;
-		border: 3px solid $secondary-color;
-	}
-
 	p {
 		font-size: 1rem;
 		line-height: 1.5;
-		padding: 0.5rem 1rem;
+		padding: 1.5rem 2rem;
 		border-radius: $border-radius-general;
 		@include glass-effect;
 		color: $secondary-color;
@@ -318,42 +310,69 @@
 }
 
 /* =====================
-   FACTS SECTION
+	FACTS SECTION
 ===================== */
 .facts-section {
 	width: 100%;
 }
+
 .facts-container {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	display: flex;
+	width: 100%;
+	flex-direction: column;
 	gap: 1.5rem;
 }
+
 .fact-item {
 	position: relative;
 	width: 100%;
-	aspect-ratio: 1;
-	text-align: center;
-	border-radius: $border-radius-rounded;
+	display: flex;
 	flex-direction: column;
-	padding: 2rem;
-	box-shadow: 0 4px 12px rgba($secondary-color, 0.3);
-	font-size: 1.3rem;
-	filter: grayscale(1);
-	@include flex-center;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 1rem;
+	overflow: hidden;
 
-	background-image: url("../assets/bears/bear_2.jpg");
-	background-color: #0000008d;
-	background-blend-mode: multiply;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+	@media screen and (min-width: 700px) {
+		flex-direction: row;
+		gap: 30px;
 
-	&::before {
-		content: url("../assets/icons/seal-question-fill.svg");
-		position: absolute;
-		bottom: 5%;
-		right: 5%;
-		scale: 1.5;
-		pointer-events: none;
+		* {
+			max-width: 400px;
+		}
+
+		&:nth-child(2) {
+			flex-direction: row-reverse;
+		}
+	}
+}
+
+.fact-image {
+	width: 100%;
+	aspect-ratio: 5/3;
+	object-fit: cover;
+	margin-bottom: 15px;
+	border-radius: 5px;
+}
+
+.fact-text {
+	color: $secondary-color;
+	text-align: left;
+	font-weight: 600;
+
+	h3 {
+		font-family: "Merriweather";
+		margin-bottom: 5px;
+		font-size: 1.3rem;
+
+		@media screen and (min-width: 700px) {
+			font-size: 1.7rem;
+			margin-bottom: 10px;
+		}
+	}
+
+	p {
+		font-size: 0.95rem;
 	}
 }

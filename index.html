@@ -18,15 +18,17 @@
 	</head>
 	<body id="body">
 		<nav class="nav show-down">
-			<a href="./index.html" class="nav-icon-wrapper">
-				<img src="./assets/icons/logo.png" class="nav-icon" />
-				<p class="nav-title">Polar Glass</p>
-			</a>
-			<button id="toggle-btn" class="toggle-btn">
-				<span class="bar"></span>
-				<span class="bar"></span>
-				<span class="bar"></span>
-			</button>
+			<div class="nav-icon-btn">
+				<a href="./index.html" class="nav-icon-wrapper">
+					<img src="./assets/icons/logo.png" class="nav-icon" />
+					<p class="nav-title">Polar Glass</p>
+				</a>
+				<button id="toggle-btn" class="toggle-btn">
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</button>
+			</div>
 			<ul class="nav-links">
 				<li>
 					<a href="#home" class="nav-link"><p>Home</p></a>
@@ -42,15 +44,10 @@
 					<a href="#contact" class="nav-link"><p>Contact</p></a>
 				</li>
 			</ul>
-			<div id="side-bar" class="side-bar">
-				<ul class="side-bar-links">
-					<li><a href="#home" class="nav-link">Home</a></li>
-					<li><a href="#about" class="nav-link">About Us</a></li>
-					<li><a href="#gallery" class="nav-link">Gallery</a></li>
-					<li><a href="#contact" class="nav-link">Contact</a></li>
-				</ul>
+
+			<div class="nav-bar-social">
 				<hr />
-				<div class="side-bar-social">
+				<div class="nav-social-links">
 					<a href="https://facebook.com" target="_blank">Facebook</a>
 					<a href="https://instagram.com" target="_blank">Instagram</a>
 				</div>
@@ -113,9 +110,6 @@
 
 			<section id="gallery-section" class="gallery-section">
 				<h1 class="section-title">Gallery</h1>
-				<h2 class="section-subtitle">
-					Lorem ipsum, dolor sit amet consectetur
-				</h2>
 
 				<div class="gallery-container">
 					<img src="./assets/bears/bear_1.jpg" class="gallery-item bounce-in" />
@@ -131,10 +125,8 @@
 
 			<section id="timeline-section" class="timeline-section">
 				<h1 class="section-title">Polar Bear Evolution</h1>
-				<h2 class="section-subtitle">From its origins to today</h2>
 				<div class="timeline-container">
 					<div class="timeline-item show-up">
-						<img src="./assets/header.jpg" class="timeline-image" />
 						<p>
 							<span class="bold">~1.3–1.6 million years ago:</span> First modern
 							estimate of when brown bear and polar bear lineages began to
@@ -142,21 +134,18 @@
 						</p>
 					</div>
 					<div class="timeline-item show-up">
-						<img src="./assets/header.jpg" class="timeline-image" />
 						<p>
 							<span class="bold">~600,000 years ago:</span> Nuclear DNA studies
 							showed when polar bears started diverging from brown bears.
 						</p>
 					</div>
 					<div class="timeline-item show-up">
-						<img src="./assets/header.jpg" class="timeline-image" />
 						<p>
 							<span class="bold">Between ~343,000 and 479,000 years ago:</span>
 							Estimate based on recent genomic models of nuclear DNA divergence.
 						</p>
 					</div>
 					<div class="timeline-item show-up">
-						<img src="./assets/header.jpg" class="timeline-image" />
 						<p>
 							<span class="bold">~150,000 years ago:</span> Evidence of the
 							first known polar ancestor and divergence according to
@@ -164,7 +153,6 @@
 						</p>
 					</div>
 					<div class="timeline-item show-up">
-						<img src="./assets/header.jpg" class="timeline-image" />
 						<p>
 							<span class="bold">Between ~120,000–125,000 years ago:</span>
 							Genomic sequencing of a skull reveals ancient hybridizations
@@ -172,7 +160,6 @@
 						</p>
 					</div>
 					<div class="timeline-item show-up">
-						<img src="./assets/header.jpg" class="timeline-image" />
 						<p>
 							<span class="bold">~50,000 years ago:</span> Mitochondrial DNA of
 							all modern polar bears unified thanks to an Irish brown bear
@@ -180,14 +167,12 @@
 						</p>
 					</div>
 					<div class="timeline-item show-up">
-						<img src="./assets/header.jpg" class="timeline-image" />
 						<p>
 							<span class="bold">From ~160,000 to ~200,000 years ago:</span>
 							Periods of gene flow between brown and polar bears.
 						</p>
 					</div>
 					<div class="timeline-item show-up">
-						<img src="./assets/header.jpg" class="timeline-image" />
 						<p>
 							<span class="bold">Modern era:</span> Polar bear as a specialized
 							Arctic predator, but with low genetic diversity and vulnerable to
@@ -199,33 +184,61 @@
 
 			<section id="facts-section" class="facts-section">
 				<h1 class="section-title">Fun Facts</h1>
-				<h2 class="section-subtitle">Lorem ipsum dolor sit amet</h2>
 
 				<div class="facts-container">
 					<div class="fact-item show-down">
-						<h3>Transparent skin</h3>
-						<p>
-							Although they appear white, their skin is black and their fur is
-							translucent, reflecting the snow.
-						</p>
+						<img
+							class="fact-image"
+							src="../assets/bears/bear_1.jpg"
+							alt="Bear"
+						/>
+						<div class="fact-text">
+							<h3>Expert swimmers</h3>
+							<p>
+								Polar bears (Ursus maritimus) are strong swimmers: they can swim
+								for hours and travel long distances between icebergs and hunting
+								grounds. Cases have been documented of individuals swimming more
+								than 100 km in the open ocean, but typical distances are
+								smaller; They swim propelled by their large webbed feet and use
+								their fur and blubber for insulation.
+							</p>
+						</div>
 					</div>
 
 					<div class="fact-item show-down">
-						<h3>Expert swimmers</h3>
-						<p>
-							They can swim up to 100 km without resting, using their paws as
-							paddles.
-						</p>
+						<img
+							class="fact-image"
+							src="../assets/bears/bear_3.jpg"
+							alt="Bear"
+						/>
+						<div class="fact-text">
+							<h3>Sense of smell</h3>
+							<p>
+								The smell of polar bears is exceptional: they can detect their
+								prey (e.g. seals) more than 1 km away and under meters of snow
+								or ice; Studies estimate detection at a few hundred meters to
+								several kilometers depending on the conditions. Claims of "30
+								km" or "under ice" detection are exaggerated.
+							</p>
+						</div>
 					</div>
 
 					<div class="fact-item show-down">
-						<h3>Amazing sense of smell</h3>
-						<p>They can detect prey more than 30 km away, even under ice.</p>
-					</div>
-
-					<div class="fact-item show-down">
-						<h3>Patient hunters</h3>
-						<p>They wait hours by ice holes to catch seals.</p>
+						<img
+							class="fact-image"
+							src="../assets/bears/bear_4.jpg"
+							alt="Bear"
+						/>
+						<div class="fact-text">
+							<h3>Patient hunters</h3>
+							<p>
+								Polar bears employ wait-and-stalk tactics to hunt seals,
+								including waiting at vents or on ice edges where seals come out
+								to breathe. They can remain motionless and silent for hours
+								before attacking, taking advantage of their camouflage and
+								patience.
+							</p>
+						</div>
 					</div>
 				</div>
 			</section>

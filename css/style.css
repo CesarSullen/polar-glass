@@ -100,7 +100,7 @@ hr {
 ===================== */
 .btn {
   padding: 0.7rem 1.6rem;
-  border-radius: 1.5rem;
+  border-radius: 35px;
   font-size: 1rem;
   cursor: pointer;
   width: 100%;
@@ -204,15 +204,15 @@ section {
   letter-spacing: 2px;
   width: 100%;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
-.section-subtitle {
-  color: #0b1c2c;
-  text-align: center;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
+/* .section-subtitle {
+	color: $secondary-color;
+	text-align: center;
+	margin-bottom: 1rem;
+	font-size: 1.2rem;
+} */
 .two-columns {
   display: grid;
   grid-template-columns: 1fr;
@@ -239,27 +239,25 @@ section {
   opacity: 1;
 }
 .animated.show-up {
-  animation: showUp 0.5s forwards;
+  animation: showUp 0.5s;
 }
 .animated.show-down {
-  animation: showDown 0.5s forwards;
+  animation: showDown 0.5s;
 }
 .animated.show-left {
-  animation: showLeft 0.5s forwards;
+  animation: showLeft 0.5s;
 }
 .animated.show-right {
-  animation: showRight 0.5s forwards;
+  animation: showRight 0.5s;
 }
 .animated.bounce-in {
-  animation: bounceIn 0.5s forwards;
+  animation: bounceIn 0.5s;
 }
 .animated.rotate-left {
-  animation: rotateLeft 0.5s forwards;
-  transform-origin: center;
+  animation: rotateLeft 0.5s;
 }
 .animated.rotate-right {
-  animation: rotateRight 0.5s forwards;
-  transform-origin: center;
+  animation: rotateRight 0.5s;
 }
 
 /* ---------------------
@@ -349,16 +347,36 @@ section {
   z-index: 1000;
   padding: 0.6rem;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   font-weight: bold;
+  border-radius: 35px;
   width: 90%;
-  border-radius: 100dvh;
   top: 10px;
   left: 0;
   right: 0;
   margin: 0 auto;
-  background: #0b1c2c;
+  overflow: hidden;
+  height: 100%;
+  max-height: 60px;
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.4) 80%);
+  backdrop-filter: blur(15px);
+  border-top: solid 1px rgba(255, 255, 255, 0.5019607843);
+  border-right: solid 0.5px rgba(255, 255, 255, 0.5019607843);
+  color: #fdfdfd;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+.nav:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+@media screen and (min-width: 700px) {
+  .nav {
+    flex-direction: row;
+    max-height: 70px;
+  }
+  .nav .nav-bar-social {
+    display: none;
+  }
 }
 
 .nav-icon-wrapper {
@@ -367,33 +385,41 @@ section {
   align-items: center;
   text-wrap: nowrap;
 }
-
-.nav-icon {
+.nav-icon-wrapper .nav-icon {
   width: 100%;
   max-width: 40px;
-  border-radius: 100vh;
 }
 @media screen and (min-width: 700px) {
-  .nav-icon {
+  .nav-icon-wrapper .nav-icon {
     max-width: 50px;
   }
 }
-
-.nav-title {
+.nav-icon-wrapper .nav-title {
   font-size: 1.8rem;
   font-family: "Merriweather";
 }
 
+.nav-icon-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .nav-links {
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 2rem;
+  font-size: 1.5rem;
+  margin-top: 1rem;
 }
 @media screen and (min-width: 700px) {
   .nav-links {
-    display: flex;
-    gap: 2rem;
+    margin-top: 0;
+    flex-direction: row;
     letter-spacing: 2px;
     text-transform: uppercase;
-    align-items: center;
     font-size: 0.9rem;
   }
   .nav-links p {
@@ -406,7 +432,7 @@ section {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #0b1c2c;
+    background-color: #fdfdfd;
     transition: width 0.3s ease;
   }
   .nav-links p:hover::after {
@@ -423,48 +449,16 @@ section {
   }
 }
 
-.side-bar {
-  position: absolute;
+.nav-bar-social {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  top: 10dvh;
-  left: 0;
   width: 100%;
-  height: 80dvh;
-  transform: translateX(-200%);
-  padding: 1rem;
-  gap: 50px;
-  border-radius: 1.5rem;
-  background: #0b1c2c;
+  gap: 2rem;
 }
 
-.side-bar-links {
+.nav-social-links {
   display: flex;
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  gap: 25px;
-  align-items: center;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-.side-bar-link {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  font-size: 1.5rem;
-}
-.side-bar-link:hover {
-  color: #fdfdfd;
-}
-
-.side-bar-social {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  gap: 15px;
+  justify-content: space-around;
 }
 
 .social-link {
@@ -821,7 +815,7 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 1.5rem;
+  border-radius: 35px;
   cursor: pointer;
   position: relative;
 }
@@ -908,17 +902,10 @@ section {
   background: #0b1c2c;
   box-shadow: 0 0 0 4px rgba(11, 28, 44, 0.2);
 }
-.timeline-item .timeline-image {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 100dvh;
-  border: 3px solid #0b1c2c;
-}
 .timeline-item p {
   font-size: 1rem;
   line-height: 1.5;
-  padding: 0.5rem 1rem;
+  padding: 1.5rem 2rem;
   border-radius: 15px;
   background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.4) 80%);
   backdrop-filter: blur(15px);
@@ -954,46 +941,69 @@ section {
 }
 
 /* =====================
-   FACTS SECTION
+	FACTS SECTION
 ===================== */
 .facts-section {
   width: 100%;
 }
 
 .facts-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  display: flex;
+  width: 100%;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
 .fact-item {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
-  text-align: center;
-  border-radius: 1.5rem;
-  flex-direction: column;
-  padding: 2rem;
-  box-shadow: 0 4px 12px rgba(11, 28, 44, 0.3);
-  font-size: 1.3rem;
-  filter: grayscale(1);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  background-image: url("../assets/bears/bear_2.jpg");
-  background-color: rgba(0, 0, 0, 0.5529411765);
-  background-blend-mode: multiply;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  overflow: hidden;
 }
-.fact-item::before {
-  content: url("../assets/icons/seal-question-fill.svg");
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
-  scale: 1.5;
-  pointer-events: none;
+@media screen and (min-width: 700px) {
+  .fact-item {
+    flex-direction: row;
+    gap: 30px;
+  }
+  .fact-item * {
+    max-width: 400px;
+  }
+  .fact-item:nth-child(2) {
+    flex-direction: row-reverse;
+  }
+}
+
+.fact-image {
+  width: 100%;
+  aspect-ratio: 5/3;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.fact-text {
+  color: #0b1c2c;
+  text-align: left;
+  font-weight: 600;
+}
+.fact-text h3 {
+  font-family: "Merriweather";
+  margin-bottom: 5px;
+  font-size: 1.3rem;
+}
+@media screen and (min-width: 700px) {
+  .fact-text h3 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+  }
+}
+.fact-text p {
+  font-size: 0.95rem;
 }
 
 /*# sourceMappingURL=style.css.map */
