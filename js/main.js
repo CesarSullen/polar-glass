@@ -9,12 +9,12 @@ toggleBtn.addEventListener("click", toggleMenu);
 function toggleMenu() {
 	toggleBtn.classList.toggle("toggled");
 
-	if (nav.style.maxHeight === "80dvh") {
+	if (nav.style.maxHeight === "90dvh") {
 		nav.style.maxHeight = "";
 		nav.style.padding = "";
 		body.style.overflowY = "auto";
 	} else {
-		nav.style.maxHeight = "80dvh";
+		nav.style.maxHeight = "90dvh";
 		nav.style.padding = "2rem";
 		body.style.overflowY = "hidden";
 	}

@@ -81,7 +81,6 @@
 
 		&:hover {
 			transform: translateY(-2px);
-			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 		}
 	}
 }
@@ -106,45 +105,59 @@
 .info-card {
 	@include glass-effect();
 	border-radius: $border-radius-general;
-	padding: 2rem 1.5rem;
+	padding: 1.5rem;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	align-items: flex-start;
 	gap: 1rem;
-	align-items: center;
+	transition: all 0.3s ease;
+
+	background: rgba(255, 255, 255, 0.15);
+
 	@media screen and (min-width: 700px) {
-		max-width: 400px;
+		max-width: 500px;
 	}
 
 	&:hover {
-		transform: translateY(-6px);
+		border: 1px solid rgba(200, 230, 255, 0.9);
+		transform: translateY(-6px) scale(1.02);
+	}
+}
+
+.info-icon {
+	flex-shrink: 0;
+	width: 55px;
+	height: 55px;
+	padding: 0.5rem;
+	border-radius: 10px;
+	transition: transform 0.3s ease;
+
+	background: rgba(200, 230, 255, 0.35);
+	border: 2px solid rgba(255, 255, 255, 0.5);
+	box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.4),
+		0 0 8px rgba(200, 230, 255, 0.4);
+
+	.info-card:hover & {
+		transform: scale(1.05) rotate(-3deg);
 	}
 }
 
 .info-content {
 	display: flex;
 	flex-direction: column;
-	text-align: center;
-}
-
-.info-icon {
-	max-width: 70px;
-	max-height: 70px;
-	padding: 0.6rem;
-	background: rgba($secondary-color, 0.7);
-	border-radius: 100dvh;
-
-	.info-card:hover & {
-		transform: rotate(8deg) scale(1.05);
-	}
+	gap: 0.5rem;
+	text-align: left;
 }
 
 .info-title {
 	font-family: "Merriweather";
-	font-size: 1.5rem;
+	font-size: 1.3rem;
+	font-weight: 600;
 }
 
 .info-text {
 	font-size: 1rem;
+	line-height: 1.5;
 }
 
 /* =====================
@@ -187,6 +200,7 @@
 	border-radius: $border-radius-rounded;
 	cursor: pointer;
 	position: relative;
+	@include glass-effect();
 
 	&:hover {
 		transform: scale(1.03);

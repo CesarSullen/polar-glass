@@ -2,144 +2,117 @@
 	background: $secondary-color;
 	color: $primary-color;
 	padding: 3rem 1.5rem;
-	text-align: center;
 	font-family: "Merriweather", serif;
+	text-align: center;
 
 	.footer-content {
 		max-width: 1200px;
 		margin: 0 auto;
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 		gap: 2rem;
-		align-items: flex-start;
+		justify-items: center;
+		align-items: center;
 	}
 
-	.footer-column {
+	.footer-brand {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		text-align: center;
 
-		h3 {
-			font-size: 1.4rem;
+		.footer-logo {
+			max-width: 100px;
 			margin-bottom: 1rem;
-			color: $primary-color;
+			transition: transform 0.3s ease;
+
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+	}
+
+	.footer-links {
+		h3 {
+			font-size: 1.1rem;
+			margin-bottom: 1rem;
 			text-transform: uppercase;
-			letter-spacing: 1.2px;
+			letter-spacing: 1px;
 		}
-	}
 
-	.footer-logo {
-		width: 120px;
-		margin-bottom: 1rem;
-		filter: brightness(1.2);
-		transition: transform 0.3s ease;
-
-		&:hover {
-			transform: scale(1.05);
-		}
-	}
-
-	.footer-description {
-		font-size: 0.95rem;
-		line-height: 1.6;
-		color: lighten($primary-color, 10%);
-		max-width: 200px;
-	}
-
-	.opening-hours {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		width: 100%;
-
-		.hours-row {
+		ul {
+			list-style: none;
+			padding: 0;
 			display: flex;
-			justify-content: space-between;
-			padding: 0.5rem 1rem;
-			background: rgba($primary-color, 0.1);
-			border-radius: 8px;
-			font-size: 0.9rem;
-			transition: background 0.3s ease;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.6rem;
 
-			&:hover {
-				background: rgba($primary-color, 0.2);
-			}
+			a {
+				text-decoration: none;
+				font-size: 0.95rem;
 
-			span:first-child {
-				color: $primary-color;
-			}
-
-			.open {
-				color: $primary-color;
-				font-weight: 500;
+				&:hover {
+					@include glassy-text;
+				}
 			}
 		}
 	}
 
-	.social-media {
-		display: flex;
-		gap: 1.5rem;
-		margin-bottom: 1rem;
-
-		.social-link {
-			width: 36px;
-			filter: grayscale(20%);
-			transition: all 0.3s ease;
-
-			&:hover {
-				transform: translateY(-3px);
-				filter: grayscale(0%) brightness(1.1);
-			}
+	.footer-social {
+		h3 {
+			font-size: 1.1rem;
+			margin-bottom: 1rem;
+			text-transform: uppercase;
 		}
-	}
 
-	.contact-info {
-		font-size: 0.95rem;
-		line-height: 1.8;
-		color: lighten($primary-color, 10%);
+		.social-media {
+			display: flex;
+			justify-content: center;
+			gap: 1rem;
 
-		a {
-			color: $primary-color;
-			text-decoration: none;
-			transition: color 0.3s ease;
-
-			&:hover {
-				color: darken($primary-color, 15%);
+			.social-link {
+				width: 50px;
+				height: 50px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: rgba($primary-color, 0.15);
+				border-radius: 50%;
+				font-weight: 600;
+				color: $primary-color;
+				text-decoration: none;
+				transition: all 0.3s ease;
+				padding: 0.3rem;
+				&:hover {
+					transform: translateY(-3px) scale(1.05);
+					background: rgba($primary-color, 0.3);
+					@include glass-effect;
+				}
 			}
 		}
 	}
 
 	.footer-bottom {
-		margin-top: 2rem;
-		padding-top: 1.5rem;
+		margin-top: 2.5rem;
+		padding-top: 1rem;
 		border-top: 1px solid rgba($primary-color, 0.2);
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 1rem;
-
-		a {
-			display: flex;
-			align-items: center;
-			gap: 0.5rem;
-			color: $primary-color;
-			text-decoration: none;
-			transition: color 0.3s ease;
-
-			&:hover {
-				color: $primary-color;
-			}
-		}
-
-		.so-logo {
-			width: 40px;
-		}
+		text-align: center;
 
 		.copyright {
 			font-size: 0.85rem;
-			color: lighten($primary-color, 20%);
+			color: $primary-color;
+			font-weight: 600;
+			text-decoration: none;
+
+			&:hover {
+				@include glassy-text;
+			}
+		}
+
+		.footer-description {
+			font-size: 0.9rem;
+			color: lighten($primary-color, 15%);
+			margin-top: 0.5rem;
 		}
 	}
 }
